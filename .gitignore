@@ -1,7 +1,6 @@
 *.egg-info
 *.pot
 *.py[co]
-db.sqlite3
 .tox/
 __pycache__
 MANIFEST
