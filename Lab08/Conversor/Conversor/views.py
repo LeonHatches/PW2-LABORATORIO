@@ -18,6 +18,10 @@ class GeneratePDF(View):
             response = HttpResponse(pdf, content_type='application/pdf')
             filename = "Invoice_%s.pdf" %("prueba")
             content = "inline; filename='%s'" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" %(filename)
+            
             response['Content-Disposition'] = content
             return response
         
