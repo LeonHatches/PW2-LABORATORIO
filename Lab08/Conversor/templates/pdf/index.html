@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inicio</title>
+        <meta name="description" content="Formulario para convertir a PDF">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <form method="POST" action="{% url 'generate_pdf' %}">
+                {% csrf_token %}
+
+                <label>Título: </label><br>
+                <input type="text" name="title" required/>
+
+                <label>Texto: </label><br>
+                <textarea name="text" required/>
+
+                <button type="submit">Generar PDF</button>
+            </form>
+        </div>
+    </body>
+</html>
