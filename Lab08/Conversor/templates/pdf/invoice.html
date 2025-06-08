@@ -11,7 +11,7 @@
                 font-size: 20px;
                 font-weight: 100;
                 text-align: center;
-                color: #007cae;
+                color:rgb(34, 34, 34);
             }
             .title {
                 font-size: 22px;
@@ -20,7 +20,7 @@
                 padding: 10px 20px 0px 20px;  
             }
             .title span {
-                color: #007cae;
+                color:rgb(34, 34, 34);
             }
             .details {
                 padding: 10px 20px 0px 20px;
@@ -39,14 +39,11 @@
     <body>
         <div class='wrapper'>
             <div class='header'>
-                <p class='title'>Invoice #{{ invoice_id }}</p>
+                <p class='title'>{{ title }}</p>
             </div>
         <div>
         <div class='details'>
-            Bill to: {{ customer_name }}<br/>
-            Amount: {{ amount }} <br/>
-            Date: {{ today }}
-            <hr class='hrItem' />
+            {{ text }}
         </div>
     </div>
     </body>
