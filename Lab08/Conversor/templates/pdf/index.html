@@ -7,27 +7,78 @@
         <meta name="description" content="Formulario para convertir a PDF">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            body {
+                margin-top: 200px;
+            }
+
+            h1 {
+                font-family: sans-serif;
+                text-align: center;
+                color:rgb(42, 42, 42);
+            }
+
+            form {
+                border: 1px solid rgb(42, 42, 42);
+                padding: 20px;
+                width: 350px;
+                margin: 50px auto;
+                border-radius: 6px;
+                font-family: sans-serif;
+                background-color: #fdfdfd;
+            }
+
+            label {
+                display: block;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+
+            input[type="text"],
+            textarea {
+                width: 100%;
+                padding: 6px;
+                margin-top: 4px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                text-align: justify;
+            }
+
+            button {
+                margin-top: 15px;
+                width: 100%;
+                padding: 10px;
+                background-color: rgb(112, 112, 112);
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: rgb(42, 42, 42);
+            }
         </style>
     </head>
 
     <body>
         <div>
-            <h3>Generador de PDF<h3>
+            <h1>Generador de PDF</h1>
 
             <form method="POST" action="">
                 {% csrf_token %}
 
-                <label>Nombre del Archivo: </label><br>
+                <label>Nombre del Archivo: </label>
                 <input type="text" name="filename" required/><br>
 
-                <label>Título: </label><br>
+                <label>Título: </label>
                 <input type="text" name="title" required/><br>
 
-                <label>Texto: </label><br>
+                <label>Texto: </label>
                 <textarea name="text" required></textarea><br>
 
                 <label>¿Desea descargar al instante? </label>
-                <input type="checkbox" name="download"/><br>
+                <input type="checkbox" name="download"/>
 
                 <button type="submit">Generar PDF</button>
             </form>
