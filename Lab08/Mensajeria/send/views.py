@@ -1,14 +1,25 @@
+from django.views import View
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
-def index(request):
-    send_mail(
-        'Hello from Django',
-        'Hello there, this is an automated message.',
-        '***@gmail.com',
-        ['***@unsa.edu.pe'],
-        fail_silently = False
-    )
+class index(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'send/index.html', {'state': ''})
     
-    return render(request, 'send/index.html', {})
+    def post(self, request, *args, **kwargs):
+        
+        title = request.POST.get('title')
+        text  = request.POST.get('text')
+        to    = request.POST.get('to')
+
+        send_mail(
+            title,
+            text,
+            settings.EMAIL_HOST_USER,
+            [to],
+            fail_silently = False
+        )
+    
+        return render(request, 'send/index.html', {'state':'Se Envió Correctamente'})
