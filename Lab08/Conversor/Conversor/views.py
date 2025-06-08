@@ -13,7 +13,7 @@ class GeneratePDF(View):
         
         file  = request.POST.get('filename')
         title = request.POST.get('title')
-        text  = request.POST.get('text')
+        text  = request.POST.get('text').replace("\n", "<br>")
         download = request.POST.get('download')
         
         context = {
